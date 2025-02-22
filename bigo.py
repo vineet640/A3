@@ -32,19 +32,18 @@ def length_of_longest_substring_n3(s):
         for j in range(i + 1, n + 1):
             my_substr = s[i:j]
 
-        frequency = [0] * 256
+            frequency = [0] * 256
 
-        repeats = False
-        for char in my_substr:
-            charindex = ord(char)
-            frequency[charindex] += 1
-            if frequency[charindex] > 1:
-                repeats = True
+            repeats = False
+            for char in my_substr:
+                charindex = ord(char)
+                frequency[charindex] += 1
+                if frequency[charindex] > 1:
+                    repeats = True
 
-        if not repeats:
-            length = j - i
-            if length > maxlength:
-                maxlength = length
+            if not repeats:
+                length = j - i
+                maxlength = max(maxlength, length)
 
     if not s:
         return 0
@@ -76,9 +75,9 @@ def length_of_longest_substring_n2(s):
                     repeats = True
             if not repeats:
                 length = j - i + 1
-                if length > maxlength:
-                    maxlength = length
-
+                maxlength = max(maxlength, length)
+    if not s:
+        return 0
     return maxlength
 
 
@@ -109,7 +108,7 @@ def length_of_longest_substring_n(s):
             frequency[index] = 1
             length += 1
 
-        if length > maxlength:
-            maxlength = length
-
+        maxlength = max(maxlength, length)
+    if not s:
+        return 0
     return maxlength
