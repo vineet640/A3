@@ -13,11 +13,10 @@ code to someone else), the case shall be submitted to the Office of the Dean of
 Students. Academic penalties up to and including an F in the course are likely.
 
 UT EID 1: vsb433
-UT EID 2: asd123
+UT EID 2: ac84787
 """
 
 
-# TODO: implement this function. You may delete this comment when you are done.
 def length_of_longest_substring_n3(s):
     """
     Finds the length of the longest substring without repeating characters
@@ -25,36 +24,33 @@ def length_of_longest_substring_n3(s):
 
     pre: s is a string of arbitrary length, possibly empty.
     post: Returns an integer >= 0 representing the length of the longest substring
-          in s that contains no repeating characters.
+            in s that contains no repeating characters.
     """
     n = len(s)
     maxlength = 0
-
     for i in range(n):
-      for j in range(i + 1, n + 1):
+        for j in range(i + 1, n + 1):
             my_substr = s[i:j]
 
-            frequency = [0] * 256
+        frequency = [0] * 256
 
-            repeats = False
-            for char in my_substr:
-                  charindex = ord(char)
-                  frequency[charindex] += 1
-                  if frequency[charindex] > 1:
-                        repeats = True
+        repeats = False
+        for char in my_substr:
+            charindex = ord(char)
+            frequency[charindex] += 1
+            if frequency[charindex] > 1:
+                repeats = True
 
-            if not repeats:
-                  length = j - i
-                  if length > maxlength:
-                        maxlength = length
+        if not repeats:
+            length = j - i
+            if length > maxlength:
+                maxlength = length
 
     if not s:
-      return 0
+        return 0
 
     return maxlength
 
-
-# TODO: implement this function. You may delete this comment when you are done.
 def length_of_longest_substring_n2(s):
     """
     Finds the length of the longest substring without repeating characters
@@ -64,34 +60,28 @@ def length_of_longest_substring_n2(s):
 
     pre: s is a string of arbitrary length, possibly empty.
     post: Returns an integer >= 0 representing the length of the longest substring
-          in s that contains no repeating characters.
+        in s that contains no repeating characters.
     """
-   
     n = len(s)
     maxlength = 0
 
     for i in range(n):
-
-      frequency = [0] * 256
-
-      for j in range(i,n):
+        frequency = [0] * 256
+        for j in range(i,n):
             charindex = ord(s[j])
             frequency[charindex] += 1
-
             repeats = False
             for k in range(256):
-                  if frequency[k] > 1:
-                        repeats = True
-
+                if frequency[k] > 1:
+                    repeats = True
             if not repeats:
-                  length = j - i + 1
-                  if length > maxlength:
-                        maxlength = length
+                length = j - i + 1
+                if length > maxlength:
+                    maxlength = length
 
     return maxlength
 
 
-# TODO: implement this function. You may delete this comment when you are done.
 def length_of_longest_substring_n(s):
     """
     Finds the length of the longest substring without repeating characters
@@ -103,14 +93,13 @@ def length_of_longest_substring_n(s):
 
     pre: s is a string of arbitrary length, possibly empty.
     post: Returns an integer >= 0 representing the length of the longest substring
-          in s that contains no repeating characters.
+        in s that contains no repeating characters.
     """
     n = len(s)
     maxlength = 0
-    
+
     for i in range(n):
-        
-        frequency = [0] * 256  
+        frequency = [0] * 256
         length = 0
 
         for j in range(i, n):
